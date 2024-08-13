@@ -6,11 +6,7 @@ def merge_sort(x)
     left = merge_sort(x.slice!(0,x.length/2))
     right = merge_sort(x)
     until left.empty? || right.empty?
-        if left.first <= right.first
-          sorted.push(left.shift)
-        else
-          sorted.push(right.shift)
-        end
+        left.first <= right.first ? sorted.push(left.shift) : sorted.push(right.shift)
     end
     left.empty? ? sorted += right : sorted += left
   end
